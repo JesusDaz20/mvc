@@ -1,0 +1,13 @@
+h1{
+    color: red;
+    font-family: sans-serif;
+    text-align: center;
+    margin: 20px;
+    font-size: 55px;
+}
+p{
+    color:chocolate;
+    font-size: 35px;
+    margin:10px;
+    text-align: center;
+}
