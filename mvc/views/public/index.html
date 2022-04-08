@@ -1,29 +1,86 @@
-<h1>Web.py y MVC </h1>
-<p>Pagina web publica</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" >
+<head>
+<title>Bienvenida</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Language" content="Español" />
+<link rel="stylesheet" type="text/css" href="archivos/estilo.css" />
+</head>
+<body>
+<div id="contenedor">
+<div id="cabecera">
+<h1>Bienvenida</h1>
+</div>
+<div id="menu">
+<div id="fondomenu">
+<ul>
+<li><a href="">Menu</a></li>
+<li><a href="#">jnymujyjnmjnj</a></li>
+<li><a href="#">uyjujyjnyhuy</a></li>
+<li><a href="#">uj6hyyjyuyhyj</a></li>
+</ul>
+</div> 
+</div>
+</div>
+</body>
+</html>
 
-<table>
-    <th>Sensor 1</th>
-    <th>Sensor 2</th>
-    <th>Sensor 3</th>
-    <tr>
-        <td id="aaaaa">{{sensor1}}</td>
-        <td id="bbbb">{{sensor2}}</td>
-        <td id="cccc">{{sensor3}}</td>
-    </tr>
-</table>
 
-<script>
-    window.setInterval(function(){
-        var request = new XMLHttpRequest();
-        request.open('GET',"https://temperatura-proyecto-8afdb-default-rtdb.firebaseio.com/admin_users/sensores.json");
-        request.onload = () => {
-            const response = request.responseText;
-            console.log(response); 
-            const json = JSON.parse(response);
-            document.getElementById('aaaaa').innerHTML = json['aaaaa'].temperatura;
-            document.getElementById('bbbb').innerHTML = json['bbbb'].temperatura;
-            document.getElementById('cccc').innerHTML = json['cccc'].temperatura;
-        };
-        request.send();
-    }, 1000);
-</script>
+<style>
+  
+body {
+margin: 0;
+padding: 0;
+font: normal 13px arial, helvetica, sans-serif;
+background: #2FD7DC ;
+}
+#contenedor {
+margin: 0 auto;
+width: 900px;
+}
+#cabecera {
+height: 120px;
+text-align: center;
+background: #C11FAB;
+}
+#cabecera h1 {
+margin: 0;
+padding: 25px;
+font: bold 50px arial, helvetica, sans-serif;
+color: black;
+}
+#menu {
+background: url(../imagenes/boton-menu.jpg);
+height: 30px;
+}
+#fondomenu {
+width: 900px;
+height: 30px;
+background: #C11FAB;
+}
+#fondomenu ul {
+list-style: none;
+margin: 200;
+padding: 0;
+}
+#fondomenu ul li a {
+background: url(../imagenes/boton-menu.jpg);
+width: 120px;
+height: 30px;
+margin-left: 1px;
+float: left;
+text-align: center;
+line-height: 30px;
+font-size: 13px;
+color: white;
+text-decoration: none;
+display: block;
+}
+#fondomenu ul li a:hover {
+background: url(../imagenes/boton-menu2.jpg);
+color: black;
+}
+
+</style>
