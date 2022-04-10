@@ -1,5 +1,5 @@
 import web 
-import firebase_config as token
+import mvc.controllers.public.firebase_config as token
 import pyrebase
 import json
 urls =(
