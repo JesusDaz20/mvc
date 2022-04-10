@@ -12,21 +12,57 @@
     <a href="#" class="logo">
       <span>Tempe</span>ratura</a>
 
-      <input type="text">
+      <input type="checkbox" id="menu-bar">
+      <label for="menu-bar" class="fa fa-bars">
+      </label>
       
 
 
       <nav class="navbar">
         <a href="inicio">inicio</a>
-        <a href="detalles">detalles</a>
-        <a href="acerca de">acerca de</a>
-        <a href="opiniones">opiniones</a>
-        <a href="precio">precio</a>
-        <a href="contacto">contacto</a>
+
       </nav>
-    </header>
+
+</header>
+
+<section class="inicio" id="inicio">
+    <div class="content">
+      <div class= "image">
+        <img src="img/descarga.png" alt="">
+     </div>
+ 
+      <h3>usuarios </h3>
+      <a href="#" class="btn">Mas Detalles</a>
+    </div>
+
+    <div class="content">
+      <div class= "image">
+        <img src="img/descarga.png" alt="">
+     </div>
+ 
+      <h3>usuarios </h3>
+      <a href="#" class="btn">Mas Detalles</a>
+    </div>
+
+    <div class="content">
+      <div class= "image">
+        <img src="img/descarga.png" alt="">
+     </div>
+ 
+      <h3>usuarios </h3>
+      <a href="#" class="btn">Mas Detalles</a>
+    </div>
+
+</section>
+
+
+
 </body>
 </html>
+
+
+
+
 
 <style>
  
@@ -68,13 +104,41 @@ body{
 
 }
 
+section{
+  min-width: 100vh;
+  padding: 0 9%;
+  padding-top: 15rem;
+  padding-bottom:2rem;
+  Text-align: center;
+  
+}
+
+.btn{
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .8rem .3rem;
+  border-radius: 5rem;
+  background: blue;
+  font-size: 1.8rem;
+  color: white;
+  box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .1);
+  transition: all .3s linear;
+
+}
+
+.btn:hover{
+  
+  transform: scale(1.1);
+}
+
+
 header{
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-color: white;
-  box-shadow: 0. 5rem 1rem rgba(0, 0, 0, .1);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
   padding: 2rem 9%;
   display: flex;
   align-items: center;
@@ -104,7 +168,52 @@ header .navbar a:hover{
   color: var(--limon);
 }
 
+header input{
+  display: none;
+}
+
+
+header label{
+  font-size: 3rem;
+  color: var(--verde);
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+}
  
+.inicio{
+  display: flex;
+  align-items: center;
+
+}
+
+.inicio .image img{
+  width: 20vw;
+  padding: 5%;
+}
+
+.inicio .content h3 {
+  font-size: 2rem;
+  color :black;
+  text-transform: uppercase;
+  Text-align: center;
+
+}
+
+
+.inicio .content h3 span {
+  color :black;
+  text-transform: uppercase;
+
+}
+
+
+.inicio .content p{
+  font-size: 1.7em;
+  color :red;
+  padding: 1rem;
+  
+}
 
 
 
