@@ -1,7 +1,113 @@
-<html>
-  <head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenida</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+  <header>
+    <a href="#" class="logo">
+      <span>Tempe</span>ratura</a>
+
+      <input type="text">
       
-    </body>
-  </head>
+
+
+      <nav class="navbar">
+        <a href="inicio">inicio</a>
+        <a href="detalles">detalles</a>
+        <a href="acerca de">acerca de</a>
+        <a href="opiniones">opiniones</a>
+        <a href="precio">precio</a>
+        <a href="contacto">contacto</a>
+      </nav>
+    </header>
+</body>
 </html>
+
+<style>
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+:root{
+  --verde: #0c443a;
+  --limon: #25d1b2;
+
+  --degradado:linear-gradient(90deg, var(--limon).var(verde));
+
+
+}
+
+*{
+  font-family: 'Poppins' , 'sans-serif';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+
+}
+
+::selection{
+  background: var(--limon);
+  color: white;
+}
+
+html{
+  font-size: 62.4%;
+  overflow: hidden;
+}
+
+body{
+  background: #f9f9f9;
+
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0. 5rem 1rem rgba(0, 0, 0, .1);
+  padding: 2rem 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+
+}
+
+header .logo{
+  font-size: 2rem;
+  color: var(--verde);
+
+}
+
+header .logo span{
+  color: var(--limon);
+}
+
+header .navbar a{
+  font-size:1.8rem;
+  margin-left: 2rem;
+  color: var(--verde);
+
+}
+
+header .navbar a:hover{
+  color: var(--limon);
+}
+
+ 
+
+
+
+
+
+</style>
