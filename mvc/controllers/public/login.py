@@ -23,10 +23,23 @@ class Login:
             email = formulario.email 
             password= formulario.password
             user = auth.sign_in_with_email_and_password(email, password)
-            web.setcookie('localIdd', user['localId']) 
-            print("localId:",web.cookies().get('localId')) 
-            localId = user['localId'] 
-            return web.seeother('/bienvenida')
+            cookie= auth.get.account_info(user['localId'])
+            localId=user['localId']
+            web.setcookie('localIdd', user['localId'])
+            all_users = db.child("usuarios").get() 
+            for user in all_users.each():
+                if user.key() == localId and user.val()['level'] == "admin":
+                    if user.val()['status'] == 'true':
+                        return web.seeother('/bienvenida_admin') 
+                    else:
+                        admin = user.val()['level'] == "admin"
+                        return web.seeother('/logout')
+                elif user.key() == localId and user.val()['level'] == "operador":
+                    if user.val()['status'] == 'true':
+                        return web.seeother('/bienvenida_operador') 
+                    else:
+                        admin = user.val()['level'] == "admin"
+                        return web.seeother('/logout')
         except Exception as error: 
             formato = json.loads(error.args[1])
             error = formato['error']
