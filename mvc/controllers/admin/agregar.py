@@ -4,7 +4,6 @@ import pyrebase
 import json
 import app
 
-app = web.application(urls, globals())
 render = web.template.render("mvc/views/admin/")
 
 

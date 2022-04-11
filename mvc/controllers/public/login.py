@@ -25,6 +25,7 @@ class Login:
             password= formulario.password
             user = auth.sign_in_with_email_and_password(email, password)
             web.setcookie('localId', user['localId'])
+            localId= user['localId']
             all_users = db.child("usuarios").get() 
             for user in all_users.each():
                 if user.key() == localId and user.val()['level'] == "admin":
