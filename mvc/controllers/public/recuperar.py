@@ -1,15 +1,14 @@
 import web 
-import mvc.controllers.public.firebase_config as token
+import mvc.firebase_config as token
 import pyrebase
 import app 
 import json
 
-app = web.application(urls, globals())
 render = web.template.render("mvc/views/public/")
 
 class Recuperar: 
     def GET(self): 
-        message = None
+        message = "0"
         return render.recuperar(message)
 
     def POST(self):

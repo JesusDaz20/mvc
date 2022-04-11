@@ -5,13 +5,15 @@ import app
 import json
 
 render = web.template.render("mvc/views/public/") 
-
-
 class Login: 
     def GET(self):
-        message = None
-        return render.login(message) 
-
+        try: 
+            message = None 
+            return render.login(message) 
+        except Exception as error:
+            message = "Error en el sistema"
+            print("Error Login.GET: {}".format(error))
+            return render.login(message) 
     def POST(self):
         try:
             message = None
@@ -22,9 +24,7 @@ class Login:
             email = formulario.email 
             password= formulario.password
             user = auth.sign_in_with_email_and_password(email, password)
-            cookie= auth.get.account_info(user['localId'])
-            localId=user['localId']
-            web.setcookie('localIdd', user['localId'])
+            web.setcookie('localId', user['localId'])
             all_users = db.child("usuarios").get() 
             for user in all_users.each():
                 if user.key() == localId and user.val()['level'] == "admin":

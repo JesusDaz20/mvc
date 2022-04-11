@@ -3,7 +3,6 @@ import mvc.firebase_config as token
 import pyrebase
 import app 
 
-app = web.application(urls, globals())
 render = web.template.render("mvc/views/admin/")
 
 class Bienvenida_admin:
@@ -11,7 +10,7 @@ class Bienvenida_admin:
         cookie = web.cookie().get('localId')
         try: 
             print("Bienvenida.GET localID: ",web.cookies().get('localId')) 
-            if web.cookies().get('localId') == None: 
+            if web.cookies().get('localId') == "0": 
                 return web.seeother("bienvenida_admin") 
             else: 
                 return render.bienvenida_admin() 
