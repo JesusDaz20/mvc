@@ -1,7 +1,8 @@
 import web 
 import mvc.firebase_config as token
 import pyrebase
-import app 
+import json
+import app
 
 app = web.application(urls, globals())
 render = web.template.render("mvc/views/admin/")
@@ -9,6 +10,7 @@ render = web.template.render("mvc/views/admin/")
 
 class Agregar: 
     def GET(self):
+        message = None
         return render.agregar(message)
 
     def POST(self):
@@ -17,23 +19,19 @@ class Agregar:
             auth = firebase.auth() 
             db = firebase.database()
             formulario = web.input()
-            nombre = formulario.nombre
-            telefono = formulario.telefono
+            name = formulario.name
+            phone = formulario.phone
             email = formulario.email
             password= formulario.password
-            level = formulario.nivel
-            status = formulario.estado
+            level = formulario.level
+            status = formulario.status
             user = auth.create_user_with_email_and_password(email, password) 
-            datos_user = {'nombre': nombre,
-                          'telefono': telefono,
-                          'email':email, 
-                          'nivel':nivel, 
-                          'estado':estado} 
-            db.child("usuarios").child(user['localId']).set(datos_user) 
+            users = {'name': name,'phone': phone,'email':email, 'level':level, 'status':status} 
+            db.child("usuarios").child(user['localId']).set(users) 
             return web.seeother('/bienvenida_admin') 
         except Exception as error:
             formato = json.loads(error.args[1])
             error = formato['error']
             message = error['message']
             print("Error agregar.POST: {}".format(message)) 
-            return render.Agregar(message) 
+            return render.agregar(message) 

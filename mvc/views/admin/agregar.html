@@ -1,1 +1,32 @@
-
+$def with (message)
+$message 
+<!DOCTYPE html>
+<html>
+    <title>Agregar usuarios</title>
+    <body>
+        <section id="formulario">
+        <form method="POST"> 
+            <h2>Registrarse</h2>
+                  Nombre:<input type="text" name="name" id="name"><br><br>
+                 Phone: <input type="text" name="phone" id="phone" ><br><br>
+               
+                  Email:<input type="text" name="email" id="email"><br><br>
+                
+                   Password <input type="password" name="password" id="Password" ><br><br>
+                 <label>Level</label>
+                 <select name="level" id="level" >
+                     
+                    <option value="admin">Administrador</option>
+                    <option value="operador">Operador</option>
+                </select>
+            <br><br>
+                <label>Status</label>
+                <select name="status" id="status" >
+                    <option value="true">Habilitado</option>
+                    <option value="false">Inhabilitado</option>
+                </select><br><br>
+       
+                  <input type="submit" class="button" value="Registrarse">
+   
+        </body>
+        </html>
