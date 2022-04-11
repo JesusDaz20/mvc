@@ -8,12 +8,12 @@ render = web.template.render("mvc/views/public/")
 
 class Recuperar: 
     def GET(self): 
-        message = "0"
+        message = None
         return render.recuperar(message)
 
     def POST(self):
         try: 
-            message= "0"
+            message= None
             firebase = pyrebase.initialize_app(token.firebaseConfig) 
             auth = firebase.auth() 
             formulario = web.input() 
