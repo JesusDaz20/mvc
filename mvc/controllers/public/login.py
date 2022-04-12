@@ -32,13 +32,13 @@ class Login:
                     if user.val()['status'] == 'true':
                         return web.seeother('/bienvenida_admin') 
                     else:
-                        admin = user.val()['level'] == "admin"
+                        user.val()['status'] == 'false'
                         return web.seeother('/logout')
                 elif user.key() == localId and user.val()['level'] == "operador":
                     if user.val()['status'] == 'true':
                         return web.seeother('/bienvenida_operador') 
                     else:
-                        admin = user.val()['level'] == "admin"
+                        user.val()['status'] == 'false'
                         return web.seeother('/logout')
         except Exception as error: 
             formato = json.loads(error.args[1])

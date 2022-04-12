@@ -1,4 +1,4 @@
-$def with (datos_user)
+$def with (users)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,8 +19,9 @@ $def with (datos_user)
       
 
 
+  
       <nav class="navbar">
-        <a href="/index">inicio</a>
+        <a href="/bienvenida_admin">inicio</a>
 
       </nav>
 
@@ -38,7 +39,7 @@ $def with (datos_user)
               <th>Estado</th>
               <th>Actualizar</th>
           </thead>
-            $for user in datos_user:
+            $for user in users:
             <tr> 
               <td>$user.val().get('name')</td>
               <td>$user.val().get('phone')</td>
@@ -65,18 +66,7 @@ $def with (datos_user)
    
    }
    
-   *{
-     font-family: 'Poppins' , 'sans-serif';
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-     text-decoration: none;
-     outline: none;
-     border: none;
-     text-transform: capitalize;
-   
-   }
-   
+  
    ::selection{
      background: var(--limon);
      color: white;
