@@ -10,6 +10,7 @@ render = web.template.render("mvc/views/admin/")
 class Agregar: 
     def GET(self,localId):
         all_users=db.child("usuarios").get()
+        usuario = user.key()
 
     def POST(self):
         try:
@@ -29,8 +30,5 @@ class Agregar:
             db.child("usuarios").child(user['localId']).set(users) 
             return web.seeother('/usuarios') 
         except Exception as error:
-            formato = json.loads(error.args[1])
-            error = formato['error']
-            message = error['message']
-            print("Error agregar.POST: {}".format(message)) 
-            return render.usuarios(message) 
+            print("Error actualizar.POST: {}".format(message)) 
+            return web.seeother('/usuarios')  
