@@ -1,29 +1,55 @@
-<h1>Web.py y MVC </h1>
-<p>Pagina web publica</p>
+<table  >
 
-<table>
-    <th>Sensor 1</th>
-    <th>Sensor 2</th>
-    <th>Sensor 3</th>
+    <center>  <h1>sucursal_1</h1>  </center>
     <tr>
-        <td id="aaaaa">{{sensor1}}</td>
-        <td id="bbbb">{{sensor2}}</td>
-        <td id="cccc">{{sensor3}}</td>
+      <td>HUMEDAD</td>
+      <td>TEMPERATURA</td>
     </tr>
-</table>
+      <tr>
+        <td id="humedad">{{sucursal_1}}</td>
+        <td id="temperatura">{{sucursal_1}}</td>
+      </tr>
+      <br>
+  </table>
+  
+  <html>
+    <input type="submit" value="Enfriamiento" ><br><br>
 
-<script>
+  </html>
+  
+  <table  > 
+    <center>  <h1>sucursal_2</h1>  </center>
+    <tr>
+      <td>HUMEDAD</td>
+      <td>TEMPERATURA</td>
+    </tr>
+    <tr>
+      <td id="humedad_2">{{sucursal_2}}</td>
+      <td id="temperatura_1">{{sucursal_2}}</td>
+  
+  </tr>
+  </table>
+  
+  <html>
+    <input type="submit" value="Enfriamiento" ><br><br>
+
+  </html>
+  
+  <script>
     window.setInterval(function(){
-        var request = new XMLHttpRequest();
-        request.open('GET',"https://temperatura-proyecto-8afdb-default-rtdb.firebaseio.com/admin_users/sensores.json");
-        request.onload = () => {
-            const response = request.responseText;
-            console.log(response); 
-            const json = JSON.parse(response);
-            document.getElementById('aaaaa').innerHTML = json['aaaaa'].temperatura;
-            document.getElementById('bbbb').innerHTML = json['bbbb'].temperatura;
-            document.getElementById('cccc').innerHTML = json['cccc'].temperatura;
-        };
-        request.send();
-    }, 1000);
-</script>
+  
+      var request = new XMLHttpRequest();
+      request.open('GET','https://temperatura-proyecto-8afdb-default-rtdb.firebaseio.com/Sucursales.json');
+      request.onload = () => {
+        const response = request.responseText;
+        console.log(response);
+        const json = JSON.parse(response);
+        document.getElementById('Temperatura_1').innerHTML = json["Sucursal-1"].temperatura;
+        document.getElementById('Humedad_1').innerHTML = json["Sucursal-1"].humedad;
+        document.getElementById('Temperatura_2').innerHTML = json["Sucursal-2"].temperatura;
+        document.getElementById('Humedad_2').innerHTML = json["Sucursal-2"].humedad;
+        
+      };
+      request.send();
+    },100);
+  </script>

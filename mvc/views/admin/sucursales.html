@@ -24,25 +24,62 @@
       </nav>
 
     </header><br><br><br><br>
-    <nav class="sucursal">
-<h4>Sucursales</h4>
-<h1>sucursal 1</h1>
-<p>Temperatura producto 1:</p>
-<p>Humedad producto 1:</p>
-<p>Temperatura producto 2:</p>
-<p>Humedad producto 2:</p>
-</nav><br><br><br>
-<nav class="sucursal1">
-  <h1>sucursal 2</h1>
-  <p>Temperatura producto 1:</p>
-  <p>Humedad producto 1:</p>
-  <p>Temperatura producto 2:</p>
-  <p>Humedad producto 2:</p>
-  </nav>  
-        </body>
-        </html>
-        <style>
- 
+    <table  >
+
+      <center>  <h1>sucursal_1</h1>  </center>
+      <tr>
+        <td>HUMEDAD</td>
+        <td>TEMPERATURA</td>
+      </tr>
+        <tr>
+          <td id="Humedad_1">{{Sucursal-1}}</td>
+          <td id="Temperatura_1">{{Sucursal-1}}</td>
+        </tr>
+        <br>
+    </table>
+    
+    <html>
+      <input type="submit" value="Enfriamiento" ><br><br>
+  
+    </html>
+    
+    <table  > 
+      <center>  <h1>sucursal_2</h1>  </center>
+      <tr>
+        <td>HUMEDAD</td>
+        <td>TEMPERATURA</td>
+      </tr>
+      <tr>
+        <td id="Humedad_2">{{sucursal-2}}</td>
+        <td id="Temperatura_2">{{sucursal-2}}</td>
+    
+    </tr>
+    </table>
+    
+    <html>
+      <input type="submit" value="Enfriamiento" ><br><br>
+  
+    </html>
+    
+    <script>
+      window.setInterval(function(){
+    
+        var request = new XMLHttpRequest();
+        request.open('GET','https://temperatura-proyecto-8afdb-default-rtdb.firebaseio.com/Sucursales.json');
+        request.onload = () => {
+          const response = request.responseText;
+          console.log(response);
+          const json = JSON.parse(response);
+          document.getElementById('Temperatura_1').innerHTML = json["Sucursal-1"].Temperatura_1;
+          document.getElementById('Humedad_1').innerHTML = json["Sucursal-1"].Humedad_1;
+          document.getElementById('Temperatura_2').innerHTML = json["Sucursal-2"].Temperatura_2;
+          document.getElementById('Humedad_2').innerHTML = json["Sucursal-2"].Humedad_2;
+          
+        };
+        request.send();
+      },100);
+    </script>
+ <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
            
            :root{

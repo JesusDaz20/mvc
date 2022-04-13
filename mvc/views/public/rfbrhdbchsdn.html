@@ -1,0 +1,29 @@
+<h1>Temperatura_Sucursales</h1>
+<p>Pagina web publica</p>
+
+<table>
+    <th>Sensor 1</th>
+    <th>Sensor 2</th>
+    <th>Sensor 3</th>
+    <tr>
+        <td id="aaaaa">{{sensor1}}</td>
+        <td id="bbbb">{{sensor2}}</td>
+        <td id="cccc">{{sensor3}}</td>
+    </tr>
+</table>
+
+<script>
+    window.setInterval(function(){
+        var request = new XMLHttpRequest();
+        request.open('GET',"https://temperatura-proyecto-8afdb-default-rtdb.firebaseio.com/admin_users/sensores.json");
+        request.onload = () => {
+            const response = request.responseText;
+            console.log(response); 
+            const json = JSON.parse(response);
+            document.getElementById('aaaaa').innerHTML = json['aaaaa'].temperatura;
+            document.getElementById('bbbb').innerHTML = json['bbbb'].temperatura;
+            document.getElementById('cccc').innerHTML = json['cccc'].temperatura;
+        };
+        request.send();
+    }, 1000);
+</script>
