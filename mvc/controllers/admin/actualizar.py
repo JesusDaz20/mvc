@@ -7,7 +7,7 @@ import app
 render = web.template.render("mvc/views/admin/")
 
 
-class Agregar: 
+class Actualizar: 
     def GET(self,localId):
         all_users=db.child("usuarios").get()
         usuario = user.key()
