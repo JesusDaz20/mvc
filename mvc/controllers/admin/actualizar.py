@@ -10,8 +10,6 @@ render = web.template.render("mvc/views/admin/")
 class Agregar: 
     def GET(self,localId):
         all_users=db.child("usuarios").get()
-        
-
 
     def POST(self):
         try:
