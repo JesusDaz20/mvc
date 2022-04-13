@@ -8,16 +8,14 @@ render = web.template.render("mvc/views/admin/")
 
 
 class Actualizar: 
-    def GET(self,localId):
-        all_users=db.child("usuarios").get()
-        usuario = user.key()
+    def GET(self):
+         return render.actualizar()
 
     def POST(self):
         try:
             firebase = pyrebase.initialize_app(token.firebaseConfig)
             auth = firebase.auth() 
             db = firebase.database()
-
             formulario = web.input()
             name = formulario.name
             phone = formulario.phone
