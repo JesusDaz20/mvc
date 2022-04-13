@@ -8,15 +8,17 @@ render = web.template.render("mvc/views/admin/")
 
 
 class Agregar: 
-    def GET(self):
-        message = None
-        return render.agregar(message)
+    def GET(self,localId):
+        all_users=db.child("usuarios").get()
+        
+
 
     def POST(self):
         try:
             firebase = pyrebase.initialize_app(token.firebaseConfig)
             auth = firebase.auth() 
             db = firebase.database()
+
             formulario = web.input()
             name = formulario.name
             phone = formulario.phone
@@ -27,10 +29,10 @@ class Agregar:
             user = auth.create_user_with_email_and_password(email, password) 
             users = {'name': name,'phone': phone,'email':email, 'level':level, 'status':status} 
             db.child("usuarios").child(user['localId']).set(users) 
-            return web.seeother('/bienvenida_admin') 
+            return web.seeother('/usuarios') 
         except Exception as error:
             formato = json.loads(error.args[1])
             error = formato['error']
             message = error['message']
             print("Error agregar.POST: {}".format(message)) 
-            return render.agregar(message) 
+            return render.usuarios(message) 
