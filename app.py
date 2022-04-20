@@ -4,6 +4,7 @@ import pyrebase
 urls = (
     '/', 'mvc.controllers.public.index.Index',
     '/login', 'mvc.controllers.public.login.Login',
+    '/logout', 'mvc.controllers.public.logout.Logout',
     '/recuperar', 'mvc.controllers.public.recuperar.Recuperar',
     '/bienvenida_admin', 'mvc.controllers.admin.bienvenida_admin.Bienvenida_admin',
     '/bienvenida_operador', 'mvc.controllers.operadores.bienvenida_operador.Bienvenida_operador',
