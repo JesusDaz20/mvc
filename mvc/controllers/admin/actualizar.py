@@ -26,7 +26,7 @@ class Actualizar:
         level = formulario.level
         status = formulario.status
         datos_usuarios = {'name': name,'phone': phone,'email':email, 'level':level, 'status':status} 
-        result = db.child("usuarios").child(name).update(datos_usuarios)
+        result = db.child("usuarios").child(id).update(datos_usuarios)
         print(result)
         return web.seeother('/usuarios') 
        
