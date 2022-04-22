@@ -28,15 +28,13 @@ $def with (user)
       <section>
         <form method="POST"> 
             <h2>Actualizar usuarios</h2>
-                 Id:<input type="text" name="name" id="name"><br><br>
-                 Nombre:<input type="text" name="name" id="name"><br><br>
-                 Phone: <input type="text" name="phone" id="phone" ><br><br>
-               
-                  Email:<input type="text" name="email" id="email"><br><br>
-                
+                 Id:<input type="text" name="id" id="id" value="$user.key()"><br><br>
+                 Nombre:<input type="text" name="name" id="name" value="$user.val().get(name)"><br><br>
+                 Phone: <input type="text" name="phone" id="phone" value="$user.val().get(phone)" ><br><br>
+                 Email:<input type="text" name="email" id="email" value="$user.val().get(email)"><br><br>
                    <label>Level</label>
+                   $if
                    <select name="level" id="level" >
-                       
                       <option value="admin">Administrador</option>
                       <option value="operador">Operador</option>
                   </select>
@@ -49,7 +47,6 @@ $def with (user)
                   <input type="submit" class="button" value="Actualizar">
                 </form>
               </section>
-         
         </body>
         </html>
         <style>

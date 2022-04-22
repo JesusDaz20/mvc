@@ -11,7 +11,7 @@ db = firebase.database()
 
 
 class Actualizar: 
-    def GET(self,localId):
+    def GET(self):
         localId = web.cookies().get('localId')
         all_users = db.child("usuarios").get() 
         user = db.child("usuarios").child(localId).get()
