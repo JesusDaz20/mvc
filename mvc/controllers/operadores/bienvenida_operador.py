@@ -4,19 +4,14 @@ import pyrebase
 import app 
 
 render = web.template.render("mvc/views/operadores/")
+firebase = pyrebase.initialize_app(token.firebaseConfig)
+auth = firebase.auth() 
+db = firebase.database()
 
 class Bienvenida_operador:
     def GET(self): 
-        ("Bienvenida_operador.GET localID: ",web.cookies().get('localId'))
-        try: 
-            ("Bienvenida_admin.GET localID: ",web.cookies().get('localId')) 
-            if web.cookies().get('localId') == "0": 
-                return web.seeother("bienvenida_operador") 
-            else: 
-                return render.bienvenida_operador() 
-        except Exception as error: 
-            print("Error Bienvenida_operador.GET: {}".format(error)) 
-
-
-
+        localId = web.cookies().get('localId')
+        name = db.child("usuarios").child(localId).get()
+        return render.bienvenida_operador(name)
+           
 
