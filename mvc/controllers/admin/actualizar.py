@@ -11,11 +11,8 @@ class Actualizar:
     def GET(self, localId):
         localId = web.cookies().get('localId')
         all_users = db.child("usuarios").get() 
-        for user in all_users.each():
-            users =user.key()
-            level = user.val()['level']
-            
-         return render.actualizar()
+        user = db.child("usuarios").child(localId).get()
+        return render.actualizar(user)
 
     def POST(self):
         try:
@@ -29,9 +26,9 @@ class Actualizar:
             password= formulario.password
             level = formulario.level
             status = formulario.status
-            user = auth.create_user_with_email_and_password(email, password) 
-            users = {'name': name,'phone': phone,'email':email, 'level':level, 'status':status} 
-            db.child("usuarios").child(user['localId']).set(users) 
+            datos_usuarios = {'name': name,'phone': phone,'email':email, 'level':level, 'status':status} 
+            result = db.child("usuarios").child(id).update(datos_usuarios)
+            print(result)
             return web.seeother('/usuarios') 
         except Exception as error:
             print("Error actualizar.POST: {}".format(message)) 
