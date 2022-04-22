@@ -8,7 +8,13 @@ render = web.template.render("mvc/views/admin/")
 
 
 class Actualizar: 
-    def GET(self):
+    def GET(self, localId):
+        localId = web.cookies().get('localId')
+        all_users = db.child("usuarios").get() 
+        for user in all_users.each():
+            users =user.key()
+            level = user.val()['level']
+            
          return render.actualizar()
 
     def POST(self):
