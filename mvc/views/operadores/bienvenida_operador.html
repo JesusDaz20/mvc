@@ -27,15 +27,23 @@ $def with (name)
     </header><br><br><br><br><br><br><br>
     <h4>Bienvenid@ administrador <strong>$name.val().get('name')</strong></h4>
 
-    <table  >
-      <br><br>
+    <h1  align="center">sucursal 1</h1> 
+    <table border="1">
+      <thead>
 
-     <h1  align="center">sucursal 1</h1>  
+        <tr>
+          <th colspan="2">Producto 1
+          </th>
+    
+          <th colspan="2">Producto 2
+        </th>
+        </tr>
+        <tr>
       <tr>
         <td>HUMEDAD</td>
         <td>TEMPERATURA</td>
-        <td>HUMEDAD p2</td>
-        <td>TEMPERATURA p2</td>
+        <td>HUMEDAD</td>
+        <td>TEMPERATURA </td>
       </tr>
         <tr>
           <td id="humedad">{{producto1}}</td>
@@ -47,19 +55,24 @@ $def with (name)
 
 
     </table>
-    
-    <html>
+   
       <input type="submit" value="Enfriamiento" ><br><br>
   
-    </html>
-    
-    <table  > 
-      <h1  align="center">sucursal 2</h1>  
+      <h1  align="center">sucursal 2</h1>
+    <table border="1" > 
+      <thead>
+        <tr>
+          <th colspan="2">Producto 1
+          </th>
+          <th colspan="2">Producto 2
+        </th>
+        </tr>
+        <tr>
       <tr>
-        <td>HUMEDAD p3</td>
-        <td>TEMPERATURA p3</td>
-        <td>HUMEDAD p4</td>
-        <td>TEMPERATURA p4</td>
+        <td>HUMEDAD </td>
+        <td>TEMPERATURA </td>
+        <td>HUMEDAD </td>
+        <td>TEMPERATURA </td>
       </tr>
         <tr>
           <td id="Humedad">{{producto1}}</td>
@@ -138,9 +151,6 @@ $def with (name)
              margin: 0;
              padding: 0;
              box-sizing: border-box;
-             text-decoration: none;
-             outline: none;
-             border: none;
              text-transform: capitalize;
            
            }
@@ -155,12 +165,6 @@ $def with (name)
              background: #f9f9f9;
            
            }
-           h4{
-             text-align: center;
-             color: black;
-           
-           }
-           
            section{
              
              height: 100%;
@@ -182,18 +186,7 @@ $def with (name)
              transition: all .3s linear;
            
            }
-           .sucursal {
-               width: 30;
-               height: 30;
-               background-color: #b7d5df;
-               text-align: center;
-           }
-           .sucursal1 {
-               width: 30;
-               height: 30;
-               background-color: #beafbe;
-               text-align: center;
-           }
+        
            .btn:hover{
              
              transform: scale(1.1);
@@ -292,6 +285,5 @@ header label{
   
 }
 
-
-           </style>
+</style>
            
