@@ -5,7 +5,7 @@ $def with (name)
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>bienvenido operador</title>
+  <title>sucursales</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
@@ -23,25 +23,29 @@ $def with (name)
         <a href="/login">Logout</a>
 
       </nav>
-    </header>
-<br><br>
- <br><br><br><br>
 
-   <h4>Bienvenid@ operador<strong>$name.val().get('name')</strong></h4>
+    </header><br><br><br><br><br><br><br>
+    <h4>Bienvenid@ administrador <strong>$name.val().get('name')</strong></h4>
+
     <table  >
-   
-     
+      <br><br>
 
-      <h1 align="center">sucursal_1</h1> 
+     <h1  align="center">sucursal 1</h1>  
       <tr>
         <td>HUMEDAD</td>
         <td>TEMPERATURA</td>
+        <td>HUMEDAD p2</td>
+        <td>TEMPERATURA p2</td>
       </tr>
         <tr>
-          <td id="Humedad_1">{{Sucursal-1}}</td>
-          <td id="Temperatura_1">{{Sucursal-1}}</td>
+          <td id="humedad">{{producto1}}</td>
+          <td id="temperatura">{{producto1}}</td>
+          <td id="humedad2">{{producto2}}</td>
+          <td id="temperatura2">{{producto2}}</td>
         </tr>
         <br>
+
+
     </table>
     
     <html>
@@ -50,16 +54,22 @@ $def with (name)
     </html>
     
     <table  > 
-      <center>  <h1>sucursal_2</h1>  </center>
+      <h1  align="center">sucursal 2</h1>  
       <tr>
-        <td>HUMEDAD</td>
-        <td>TEMPERATURA</td>
+        <td>HUMEDAD p3</td>
+        <td>TEMPERATURA p3</td>
+        <td>HUMEDAD p4</td>
+        <td>TEMPERATURA p4</td>
       </tr>
-      <tr>
-        <td id="Humedad_2">{{sucursal-2}}</td>
-        <td id="Temperatura_2">{{sucursal-2}}</td>
-    
-    </tr>
+        <tr>
+          <td id="Humedad">{{producto1}}</td>
+          <td id="Temperatura">{{producto1}}</td>
+          <td id="Humedad2">{{producto2}}</td>
+          <td id="Temperatura2">{{producto2}}</td>
+        </tr>
+        <br>
+
+
     </table>
     
     <html>
@@ -71,20 +81,46 @@ $def with (name)
       window.setInterval(function(){
     
         var request = new XMLHttpRequest();
-        request.open('GET','https://temperatura-proyecto-8afdb-default-rtdb.firebaseio.com/Sucursales.json');
+        request.open('GET','https://temperatura-proyecto-8afdb-default-rtdb.firebaseio.com/Sucursales/sucursal1.json');
         request.onload = () => {
           const response = request.responseText;
           console.log(response);
           const json = JSON.parse(response);
-          document.getElementById('Temperatura_1').innerHTML = json["Sucursal-1"].Temperatura_1;
-          document.getElementById('Humedad_1').innerHTML = json["Sucursal-1"].Humedad_1;
-          document.getElementById('Temperatura_2').innerHTML = json["Sucursal-2"].Temperatura_2;
-          document.getElementById('Humedad_2').innerHTML = json["Sucursal-2"].Humedad_2;
-          
+          document.getElementById('temperatura').innerHTML = json["producto1"].temperatura;
+          document.getElementById('humedad').innerHTML = json["producto1"].humedad;
+          document.getElementById('temperatura2').innerHTML = json["producto2"].temperatura2;
+          document.getElementById('humedad2').innerHTML = json["producto2"].humedad2;
         };
         request.send();
       },100);
+
+      window.setInterval(function(){
+    
+        var request = new XMLHttpRequest();
+        request.open('GET','https://temperatura-proyecto-8afdb-default-rtdb.firebaseio.com/Sucursales/sucursal2.json');
+        request.onload = () => {
+         const response = request.responseText;
+      console.log(response);
+      const json = JSON.parse(response);
+      document.getElementById('Temperatura').innerHTML = json["producto1"].Temperatura;
+      document.getElementById('Humedad').innerHTML = json["producto1"].Humedad;
+      document.getElementById('Temperatura2').innerHTML = json["producto2"].Temperatura2;
+      document.getElementById('Humedad2').innerHTML = json["producto2"].Humedad2;
+    };
+    request.send();
+  },100);
+
     </script>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
            
@@ -114,8 +150,7 @@ $def with (name)
              color: white;
            }
            
- 
-           
+          
            body{
              background: #f9f9f9;
            
@@ -123,7 +158,6 @@ $def with (name)
            h4{
              text-align: center;
              color: black;
-             font-size: 30px;
            
            }
            
@@ -186,74 +220,78 @@ $def with (name)
              color: var(--verde);
            
            }
+
            
-           header .logo span{
-             color: var(--limon);
-           }
-           
-           header .navbar a{
-             font-size:1.8rem;
-             margin-left: 2rem;
-             color: var(--verde);
-           
-           }
-           
-           header .navbar a:hover{
-             color: var(--limon);
-           }
-           
-           header input{
-             display: none;
-           }
-           
-           
-           header label{
-             font-size: 3rem;
-             color: var(--verde);
-             cursor: pointer;
-             visibility: hidden;
-             opacity: 0;
-           }
-            
-           .inicio{
-             display: flex;
-             align-items: center;
-             padding-top: 15;
-           
-           }
-           
-           .inicio .image img{
-             width: 20vw;
-             padding: 5%;
-           }
-           
-           .inicio .content h3 {
-             font-size: 2rem;
-             color :black;
-             text-transform: uppercase;
-             Text-align: center;
-             padding-top: 15;
-           
-           }
-           
-           
-           .inicio .content h3 span {
-             color :black;
-             text-transform: uppercase;
-           
-           }
-           
-           
-           .inicio .content p{
-             font-size: 1.7em;
-             color :red;
-             padding: 1rem;
-             
-           }
-           
-           
-           
-           
-           
+           header .logo{
+  font-size: 2rem;
+  color: var(--verde);
+
+}
+
+header .logo span{
+  color: var(--limon);
+}
+
+header .navbar a{
+  font-size:1.8rem;
+  margin-left: 2rem;
+  color: var(--verde);
+
+}
+
+header .navbar a:hover{
+  color: var(--limon);
+}
+
+header input{
+  display: none;
+}
+
+
+header label{
+  font-size: 3rem;
+  color: var(--verde);
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+}
+ 
+.inicio{
+  display: flex;
+  align-items: center;
+  padding-top: 15;
+
+}
+
+.inicio .image img{
+  width: 20vw;
+  padding: 5%;
+}
+
+.inicio .content h3 {
+  font-size: 2rem;
+  color :black;
+  text-transform: uppercase;
+  Text-align: center;
+  padding-top: 15;
+
+}
+
+
+.inicio .content h3 span {
+  color :black;
+  text-transform: uppercase;
+
+}
+
+
+.inicio .content p{
+  font-size: 1.7em;
+  color :red;
+  padding: 1rem;
+  
+}
+
+
            </style>
            
