@@ -23,7 +23,7 @@ class Actualizar:
         name = formulario.name
         phone = formulario.phone
         level = formulario.level
-        datos_usuarios = {'name': name,'phone': phone, 'level':level,} 
+        datos_usuarios = {'name': name,'phone': phone, 'level':level} 
         result = db.child("usuarios").child(id).update(datos_usuarios)
         print(result)
         return web.seeother('/usuarios') 
