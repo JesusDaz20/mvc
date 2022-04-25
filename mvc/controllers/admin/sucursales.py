@@ -14,6 +14,7 @@ class Sucursales:
         return render.sucursales(status_1, status_2)
            
     def POST(self):  
+         localId = web.cookies().get('localId')
          formulario = web.input()
          enfriamiento1 = formulario.enfriamiento1
          enfriamiento2 = formulario.enfriamiento2

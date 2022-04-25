@@ -1,4 +1,4 @@
-$def with (name)
+$def with (name, status_1, status_2)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,9 +55,15 @@ $def with (name)
 
 
     </table>
-   
-      <input type="submit" value="Enfriamiento" ><br><br>
-  
+    <h1>Enfriamiento</h1>
+    <form method="post">
+      <input type="text"  style="display: none;"  value="$status_2.val()" name="enfriamiento2"/>
+      $if (status_1.val() == 0):
+          <button type="submit" value=0 name="enfriamiento1" >OFF</button>
+      $else:
+          <button type="submit" value=1 name="enfriamiento1" >ON</button>
+       </form>
+    
       <h1  align="center">sucursal 2</h1>
     <table border="1" > 
       <thead>
@@ -85,8 +91,15 @@ $def with (name)
 
     </table>
     
-      <input type="submit" value="Enfriamiento" ><br><br>
-  
+    <h1>Enfriamiento</h1>
+      <form method="post">
+        <input type="text"  style="display: none;"   name="enfriamiento1" value="$status_1.val()" />
+        $if (status_2.val() == 1):
+            <button type="submit" value=0 name="enfriamiento2" >OFF</button>
+        $else:
+            <button type="submit" value=1 name="enfriamiento2" >ON</button>
+        
+         </form>
     </html>
     
     <script>
