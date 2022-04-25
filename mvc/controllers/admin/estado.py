@@ -10,20 +10,18 @@ auth = firebase.auth()
 db = firebase.database()
 
 
-class Actualizar: 
+class Estado: 
     def GET(self):
         localId = web.cookies().get('localId')
         all_users = db.child("usuarios").get() 
         user = db.child("usuarios").child(localId).get()
-        return render.actualizar(user)
+        return render.estado(user)
 
     def POST(self):
         formulario = web.input()
         id = formulario.id
-        name = formulario.name
-        phone = formulario.phone
-        level = formulario.level
-        datos_usuarios = {'name': name,'phone': phone, 'level':level,} 
+        status = formulario.status
+        datos_usuarios = {'status':status} 
         result = db.child("usuarios").child(id).update(datos_usuarios)
         print(result)
         return web.seeother('/usuarios') 

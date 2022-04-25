@@ -1,3 +1,4 @@
+$def with (status_1, status_2)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,15 +25,23 @@
       </nav>
 
     </header><br><br><br><br>
-    <table  >
-      <br><br>
+    <h1  align="center">sucursal 1</h1> 
+    <table border="1">
+      <thead>
 
-     <h1  align="center">sucursal 1</h1>  
+        <tr>
+          <th colspan="2">Producto 1
+          </th>
+    
+          <th colspan="2">Producto 2
+        </th>
+        </tr>
+        <tr>
       <tr>
         <td>HUMEDAD</td>
         <td>TEMPERATURA</td>
-        <td>HUMEDAD p2</td>
-        <td>TEMPERATURA p2</td>
+        <td>HUMEDAD</td>
+        <td>TEMPERATURA </td>
       </tr>
         <tr>
           <td id="humedad">{{producto1}}</td>
@@ -41,22 +50,33 @@
           <td id="temperatura2">{{producto2}}</td>
         </tr>
         <br>
-
-
     </table>
-    
-    <html>
-      <input type="submit" value="Enfriamiento" ><br><br>
+<h1>Enfriamiento</h1>
+  <form method="post">
+    <input type="text"  style="display: none;"  value="$status_2.val()" name="enfriamiento2"/>
+    $if (status_1.val() == 0):
+        <button type="submit" value=0 name="enfriamiento1" >OFF</button>
+    $else:
+        <button type="submit" value=1 name="enfriamiento1" >ON</button>
+     </form>
   
-    </html>
-    
-    <table  > 
-      <h1  align="center">sucursal 2</h1>  
+
+
+      <h1  align="center">sucursal 2</h1>
+    <table border="1" > 
+      <thead>
+        <tr>
+          <th colspan="2">Producto 1
+          </th>
+          <th colspan="2">Producto 2
+        </th>
+        </tr>
+        <tr>
       <tr>
-        <td>HUMEDAD p3</td>
-        <td>TEMPERATURA p3</td>
-        <td>HUMEDAD p4</td>
-        <td>TEMPERATURA p4</td>
+        <td>HUMEDAD </td>
+        <td>TEMPERATURA </td>
+        <td>HUMEDAD </td>
+        <td>TEMPERATURA </td>
       </tr>
         <tr>
           <td id="Humedad">{{producto1}}</td>
@@ -68,10 +88,16 @@
 
 
     </table>
-    
-    <html>
-      <input type="submit" value="Enfriamiento" ><br><br>
-  
+    <h1>Enfriamiento</h1>
+      <form method="post">
+        <input type="text"  style="display: none;"   name="enfriamiento1" value="$status_1.val()" />
+        $if (status_2.val() == 1):
+            <button type="submit" value=0 name="enfriamiento2" >OFF</button>
+        $else:
+            <button type="submit" value=1 name="enfriamiento2" >ON</button>
+        
+         </form>
+      
     </html>
     
     <script>
@@ -137,7 +163,6 @@
              box-sizing: border-box;
              text-decoration: none;
              outline: none;
-             border: none;
              text-transform: capitalize;
            
            }
@@ -152,10 +177,10 @@
              background: #f9f9f9;
            
            }
-           h4{
-             text-align: center;
-             color: black;
-           
+           h1{
+             font-size: 20;
+             font-family: Verdana, Geneva;
+             color: #0a6458;
            }
            
            section{

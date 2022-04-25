@@ -5,40 +5,21 @@ $def with (user)
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Actualizar</title>
+  <title>Estado del usuario</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
-  <header>
-    <a href="#" class="logo">
-      <span>Tempe</span>ratura</a>
-
-      <input type="checkbox" id="menu-bar">
-      <label for="menu-bar" class="fa fa-bars">
-      </label>
-      
-
-
-      <nav class="navbar">
-        <a href="/bienvenida_admin">inicio</a>
-
-      </nav>
-
-</header>
       <section>
         <form method="POST"> 
-            <h2>Actualizar usuarios</h2>
+            <h2>Modificar status</h2>
                  localId:<input type="text" name="id" id="id" ><br><br>
-                 Nombre:<input type="text" name="name" id="name" ><br><br>
-                 Phone: <input type="text" name="phone" id="phone" ><br><br>
-                   <label>Level</label>
-                   <select name="level" id="level" value="$user.val().get('level')" >
-                      <option value="admin">Administrador</option>
-                      <option value="operador">Operador</option>
+                  <label>Status</label>
+                  <select name="status" id="status"  value="$user.val().get('status')">
+                      <option value="true">Habilitado</option>
+                      <option value="false">Inhabilitado</option>
                   </select>
-              <br>
                  <br>
-                  <input type="submit" class="button" value="actualizar">
+                  <input type="submit" class="button" value="Modificar">
                 </form>
               </section>
         </body>

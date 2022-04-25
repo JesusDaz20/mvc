@@ -11,6 +11,7 @@ urls = (
     '/usuarios', 'mvc.controllers.admin.usuarios.Usuarios',
     '/agregar', 'mvc.controllers.admin.agregar.Agregar',
     '/actualizar', 'mvc.controllers.admin.actualizar.Actualizar',
+    '/estado', 'mvc.controllers.admin.estado.Estado',
     '/sucursales', 'mvc.controllers.admin.sucursales.Sucursales',
 )
 

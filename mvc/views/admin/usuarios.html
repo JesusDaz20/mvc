@@ -38,13 +38,12 @@ $def with (users)
               <th>Estado</th>
           </thead>
             $for user in users:
-            <tr> 
+            <tr align="center"> 
               <td>$user.val().get('name')</td>
               <td>$user.val().get('phone')</td>
               <td>$user.val().get('email')</td>
               <td>$user.val().get('level')</td>
-              <td>$user.val().get('status')</td>
-            </tr>
+              <td>$user.val().get('status')<br><a href="/estado">modificar</a></td>
         </table>
         
     </body>
