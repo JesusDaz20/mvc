@@ -36,6 +36,7 @@ $def with (users)
               <th>Email</th>
               <th>Nivel</th>
               <th>Estado</th>
+              <th>Modificar Estado</th>
           </thead>
             $for user in users:
             <tr align="center"> 
@@ -43,7 +44,8 @@ $def with (users)
               <td>$user.val().get('phone')</td>
               <td>$user.val().get('email')</td>
               <td>$user.val().get('level')</td>
-              <td>$user.val().get('status')<br><a href="/estado">modificar</a></td>
+              <td>$user.val().get('status')</td>
+              <td><a href="/estado">modificar</a></td>
         </table>
         
     </body>

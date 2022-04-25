@@ -10,6 +10,7 @@ class Usuarios:
             auth = firebase.auth() 
             db = firebase.database()
             users = db.child("usuarios").get()
+            print(users)
             return render.usuarios(users) 
 
             
