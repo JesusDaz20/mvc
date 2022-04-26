@@ -27,8 +27,8 @@ class Agregar_sucursal:
             Temperatura2 = formulario.Temperatura2
             sucursales = db.child("Sucursales").child(name).get()
 
-            datos_sucursales = {'enfriamiento1': enfriamiento1, 'Producto1':{"Humedad":"Humedad","Temperatura":"Temperatura"},'Producto2':{"Humedad":"Humedad","Temperatura":"Temperatura"} } 
-            result = db.child("Sucursales").child(name).update(datos_sucursales)
+            datos_sucursales = {'enfriamiento1': enfriamiento1, 'Producto1':{"Humedad":Humedad,"Temperatura":Temperatura},'Producto2':{"Humedad2":Humedad2,"Temperatura2":Temperatura2} } 
+            result = db.child("Sucursales").child(name).set(datos_sucursales)
             return web.seeother('/agregar_sucursal') 
          except Exception as error:
             formato = json.loads(error.args[1])

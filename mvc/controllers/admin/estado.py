@@ -13,8 +13,8 @@ db = firebase.database()
 class Estado: 
     def GET(self):
         localId = web.cookies().get('localId')
-        all_users = db.child("usuarios").get() 
-        user = db.child("usuarios").child(localId).get()
+        all_users = db.child("usuarios").get()
+        user = db.child("usuarios").child(localId).get() 
         return render.estado(user)
 
     def POST(self):
@@ -23,6 +23,16 @@ class Estado:
         status = formulario.status
         datos_usuarios = {'status':status} 
         result = db.child("usuarios").child(id).update(datos_usuarios)
-        print(result)
+        
+        all_users = db.child("usuarios").get()
+        for user in all_users.each():
+            usuario=user.key()
+            status= user.val()['status']
+            level= user.val()['level']
+            if (id == "kRfouxRGPjbrFkg1kNuHJDx1SLh1" and level=="admin"):
+                return render.estado(user)
+                break
+        else: 
+            user = db.child("usuarios").child(localId).get()
         return web.seeother('/usuarios') 
        

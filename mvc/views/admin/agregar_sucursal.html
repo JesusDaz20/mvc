@@ -9,15 +9,32 @@ $def with (sucursales)
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
+  <header>
+    <a href="#" class="logo">
+      <span>Tempe</span>ratura</a>
+
+      <input type="checkbox" id="menu-bar">
+      <label for="menu-bar" class="fa fa-bars">
+      </label>
+      
+
+
+      <nav class="navbar">
+        <a href="/bienvenida_admin">inicio</a>
+
+      </nav>
+
+</header>
+<body>
   <section>
     <form method="POST"> 
         <h2>Agregar sucursales</h2>
              name:<input type="text" name="name" id="name" ><br><br>
              enfrimiento:<input type="text" name="enfriamiento1" id="enfriamiento1" ><br><br>
-             producto 1 temperatura:<input type="text" name="Temperatura" id="enfriamiento1" ><br><br>
-             producto 1 humedad:<input type="text" name="Humedad" id="Humedad" ><br><br>
-             producto 2 temperatura2:<input type="text" name="Temperatura2" id="Temperatura2" ><br><br>
-             producto 2 humedad2:<input type="text" name="Humedad2" id="Humedad2" ><br><br>
+             Producto 1 <br>Temperatura:<input type="text" name="Temperatura" id="enfriamiento1" ><br><br>
+             Producto 1 <br>Humedad:<input type="text" name="Humedad" id="Humedad" ><br><br>
+             Producto 2 <br>Temperatura2:<input type="text" name="Temperatura2" id="Temperatura2" ><br><br>
+             Producto 2 <br>Humedad2:<input type="text" name="Humedad2" id="Humedad2" ><br><br>
               <input type="submit" class="button" value="Agregar">
             </form>
           </section>
@@ -25,3 +42,161 @@ $def with (sucursales)
         
     </body>
 </html>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+ 
+ :root{
+   --verde: #0c443a;
+   --limon: #25d1b2;
+ 
+   --degradado:linear-gradient(90deg, var(--limon).var(verde));
+ 
+ 
+ }
+ 
+ *{
+   font-family: 'Poppins' , 'sans-serif';
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+   outline: none;
+   border: none;
+   text-transform: capitalize;
+ 
+ }
+ 
+ ::selection{
+   background: var(--limon);
+   color: white;
+ }
+ 
+ body{
+   background: #f9f9f9;
+ 
+ }
+ h4{
+   text-align: center;
+   color: black;
+ 
+ }
+ 
+ section{
+   
+   height: 100%;
+   width: 100%;
+   padding: 9%;
+   Text-align: center;
+   
+ }
+ 
+ .btn{
+   display: inline-block;
+   margin-top: 1rem;
+   padding: .8rem .3rem;
+   border-radius: 5rem;
+   background: blue;
+   font-size: 1.8rem;
+   color: white;
+   box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .1);
+   transition: all .3s linear;
+ 
+ }
+ 
+ .btn:hover{
+   
+   transform: scale(1.1);
+ }
+ 
+ 
+ header{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   background-color: white;
+   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+   padding: 2rem 9%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   z-index: 1000;
+ 
+ }
+ 
+ header .logo{
+   font-size: 2rem;
+   color: var(--verde);
+ 
+ }
+ 
+ header .logo span{
+   color: var(--limon);
+ }
+ 
+ header .navbar a{
+   font-size:1.8rem;
+   margin-left: 2rem;
+   color: var(--verde);
+ 
+ }
+ 
+ header .navbar a:hover{
+   color: var(--limon);
+ }
+ 
+ header input{
+   display: none;
+ }
+ 
+ 
+ header label{
+   font-size: 3rem;
+   color: var(--verde);
+   cursor: pointer;
+   visibility: hidden;
+   opacity: 0;
+ }
+  
+ .inicio{
+   display: flex;
+   align-items: center;
+   padding-top: 15;
+ 
+ }
+ 
+ .inicio .image img{
+   width: 20vw;
+   padding: 5%;
+ }
+ 
+ .inicio .content h3 {
+   font-size: 2rem;
+   color :black;
+   text-transform: uppercase;
+   Text-align: center;
+   padding-top: 15;
+ 
+ }
+ 
+ 
+ .inicio .content h3 span {
+   color :black;
+   text-transform: uppercase;
+ 
+ }
+ 
+ 
+ .inicio .content p{
+   font-size: 1.7em;
+   color :red;
+   padding: 1rem;
+   
+ }
+ 
+ 
+ 
+ 
+ 
+ </style>
+ 
